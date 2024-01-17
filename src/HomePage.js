@@ -1,8 +1,20 @@
-import React from 'react';
-import { imagesSection, navBarMenu } from './constants/ConstantsToUse';
+import React, { useEffect, useState } from 'react';
+import { imagesSection, navBarMenu, sliderImages } from './constants/ConstantsToUse';
 import './navbar.css';
 
-const HelloWorld = () => {
+const HomePage = () => {
+
+  const [value, setValue] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setValue((v) => {
+        return v === 4 ? 0 : v + 1;
+      });
+    }, 10000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <>
     <nav className="navigation">
@@ -21,7 +33,7 @@ const HelloWorld = () => {
       </div>
     </nav>
       <img 
-        src="https://media.istockphoto.com/id/636208094/photo/tropical-jungle.jpg?s=2048x2048&w=is&k=20&c=MlaHtCKbmmQAzT5d0Z-Hs8gw_yjzEar-jwMoE85Nzj8="
+        src={sliderImages[value]}
         width={'100%'}
         height={'85%'}
       />
@@ -53,4 +65,4 @@ const HelloWorld = () => {
   );
 };
 
-export default HelloWorld;
+export default HomePage;

@@ -2,6 +2,6 @@ import React from 'react';
 import { render } from 'react-dom';
 import './style.css';
 
-import HelloWorld from './HelloWorld';
+import HomePage from './HomePage';
 
-render(<HelloWorld />, document.getElementById('root'));
+render(<HomePage />, document.getElementById('root'));
